@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>课工场论坛列表</title>
+    <link href="css/bbs.css" rel="stylesheet">
+</head>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var tou=new Array("tou01.jpg","tou2.jpg","tou03.jpg","tou04.jpg");
+        var iNum=Math.floor(Math.random()*4);
+        $("header").click(function () {
+                $(".post").show();
+        })
+        $(".btn").click(function () {
+            var touImg = "<div><img src=images/" + tou[iNum] + "></div>";  //创建头像节点
+            var title = "<h2>" + $(".title").val() + "</h2>";  //设置标题节点
+            var qw = touImg + title;
+            var pk = $(".post>select").val();
+            $("ul").append(qw + "<p>版块:" + pk + "&nbsp&nbsp&nbsp&nbsp发表时间:2019-6-4</p>");
+            $(".bbs section ul").addClass("chatContent");
+            $(".title").val("");
+            $(".content").val("");
+            $("select").val("请选择版块");
+            $(".post").hide();
+        })
+    })
+</script>
+<body>
+<div class="bbs">
+    <header><span>我要发帖</span></header>
+    <section>
+        <ul></ul>
+    </section>
+    <div class="post">
+        <input class="title" placeholder="请输入标题（1-50个字符）">
+        所属版块：<select><option>请选择版块</option><option>电子书籍</option><option>新课来了</option><option>新手报到</option><option>职业规划</option></select>
+        <textarea class="content"></textarea>
+        <input class="btn" value="发布">
+    </div>
+</div>
+
+</body>
+</html>
