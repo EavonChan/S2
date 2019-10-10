@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>上机1</title>
+</head>
+<body>
+<script type="text/javascript">
+    document.write("在以下字符中:<br/>");
+    var x = new Array("America", "Greece", "Britain", "Canada", "China", "Egypt");
+    var num = 0;
+    for (var i in x) {
+        document.write(x[i]+"<br/>");
+    }
+    for (var c = 0; c < x.length; c++) {
+        if (x[c].indexOf("a") != -1 || x[c].indexOf("A") != -1) {
+            num++;
+        }
+    }
+    document.write("共有" + num + "个字符串包含a或A。");
+</script>
+</body>
+</html>

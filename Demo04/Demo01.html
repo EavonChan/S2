@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="intro">
+</div>
+<script type="text/javascript">
+    var person1 = new Object();
+    person1.name = "郎晓明";
+    person1.age = "38";
+    person1.work = "内地男演员、歌手";
+    person1.address = "中国北京海淀区";
+    person1.info = function () {
+        var str;
+        str = "姓名:" + this.name + "<br/>年龄:" + this.age + "<br/>工作：" + this.work + "<br/>住址：" + this.address;
+        document.getElementById("intro").innerHTML = str;
+    };
+    person1.info();
+</script>
+</body>
+</html>

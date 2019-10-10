@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>编辑四则运算</title>
+</head>
+<body>
+<input name="btn" type="button" value="计算两数运算结果"
+       onclick="show(num = prompt('请输入第一个数', ''),num2 = prompt('请输入第二个数', ''),num3 = prompt('请输入操作符', ''))">
+<script type="text/javascript">
+    var result;
+    function show(i, j, k) {
+        /*var num = prompt('请输入第一个数', '');
+        var num2 = prompt('请输入第二个数', '');
+        var num3 = prompt('请输入操作符', '');*/
+        var p1 = parseFloat(num);
+        var p2 = parseFloat(num2);
+        if (!isNaN(i) && !isNaN(j)) {
+            if (k == "+") {
+                result = p1 + p2;
+                alert(p1 + num3 + p2 + "=" + result);
+            } else if (k == "-") {
+                result = p1 - p2;
+                alert(p1 + num3 + p2 + "=" + result);
+            } else if (k == "*") {
+                result = p1 * p2;
+                alert(p1 + num3 + p2 + "=" + result);
+            }
+            if (j == 0) {
+                alert("0不能做除数")
+            }
+            else {
+                if (k == "/") {
+                    result = p1 / p2;
+                    alert(p1 + num3 + p2 + "=" + result);
+                } else if (k == "%") {
+                    result = p1 % p2;
+                    alert(p1 + num3 + p2 + "=" + result);
+                }
+            }
+        } else {
+            alert('操作数只能是数字');
+        }
+    }
+</script>
+</body>
+</html>

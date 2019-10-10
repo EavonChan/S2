@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script type="text/javascript">
+    //我要发帖
+    var num = 0;
+    function Posting() {
+        if (num == 0) {
+            document.getElementsByClassName("post")[0].style.display="block";
+            num = 1;
+        } else if (num == 1) {
+            document.getElementsByClassName("post")[0].style.display="none";
+            num = 0;
+        }
+    }
+
+    //数组：存储头像
+    var tou = new Array("tou01.jpg","tou02.jpg","tou03.jpg","tou04.jpg");
+
+    //获取填写信息并发布
+    function Publish() {
+        if (num == 1) {
+            /*获取填写的各项值*/
+            var Title = document.getElementsByClassName("title")[0].value;      //标题
+            var Block = document.getElementsByTagName("select")[0].value;       //所属版块
+            var Content = document.getElementsByClassName("content")[0].value;  //内容
+            //获取发布时间
+            var myDate = new Date();
+            var Time = myDate.getFullYear() + "-" + myDate.getMonth() + "-" + myDate.getDate() + " " + myDate.getHours() + ":" + myDate.getMinutes();
+
+            //获取随机数选择头像
+            var iNum = Math.floor(Math.random() * 3 + 0);
+
+            /*插入发帖内容*/
+            var bName = document.getElementsByTagName("section")[0];
+            var ul = document.createElement("ul");
+            ul.innerHTML = "<li>" + "<div>" + "<img src=\"images/" + tou[iNum] + "\">" + "</div>" + "<h1>" + Title + "</h1>" + "<p>" + "<span>所属版块：" + Block + "</span>" + "<span>" + Time + "</span>" + "</p>" + "</li>";
+            bName.appendChild(ul);
+
+            /*发布成功收起弹出*/
+            document.getElementsByClassName("post")[0].style.display="none";
+            num = 0;
+
+            /*清除填写的各项值*/
+            document.getElementsByClassName("title")[0].value = "";
+            document.getElementsByTagName("select")[0].value = document.getElementsByTagName("option")[0].value;
+            document.getElementsByClassName("content")[0].value = "";
+        }
+    }
+</script>
+<body>
+
+</body>
+</html>

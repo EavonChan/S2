@@ -1,0 +1,14 @@
+.title {
+    font-size: 20px;
+    color: blue
+}
+img, div {
+    display: inline-block
+}
+#book-text {
+    display: none;
+}
+div p {
+    text-indent: 2em
+}
+#book-h2{background-color: #0bbe06}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="intro"></div>
+<script type="text/javascript">
+    function  Person(nation,skinColor) {
+        this.nation=nation;
+        this.skinColor=skinColor;
+    }
+    Person.prototype.getNation=function () {
+        return this.nation;
+    };
+    Person.prototype.getSkinColor=function () {
+        return this.skinColor;
+    };
+    function Woman(nation,skinColor,sex) {
+        Person.call(this,nation,skinColor);
+        this.sex=sex;
+    }
+    Woman.prototype=new Person();
+    Woman.prototype.getSex=function () {
+        return this.sex;
+    };
+    var woman1=new Woman("汉族","黄色","女");
+    document.getElementById("intro").innerHTML="<br/>民族："+woman1.getNation()+"<br/><br/>肤色："+woman1.getSkinColor()+"<br/><br/>性别："+woman1.getSex();
+</script>
+</body>
+</html>

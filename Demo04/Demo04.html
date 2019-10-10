@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="intro"></div>
+<script type="text/javascript">
+    function Person(name, chinese, math) {
+        this.name = name;
+        this.chinese = chinese;
+        this.math = math;
+    }
+
+    Person.prototype.getName = function () {
+        return this.name;
+    };
+    Person.prototype.getChinese = function () {
+        return this.chinese;
+    };
+    Person.prototype.getMath = function () {
+        return this.math;
+    };
+
+    function Student(name, chinese, math, age) {
+        Person.call(this, name, chinese, math);
+        this.age = age;
+    }
+
+    Student.prototype = new Person();
+    Student.prototype.getAge = function () {
+        return this.age;
+    };
+    var student = new Student("张三", "98", "80", "25");
+    document.getElementById("intro").innerHTML = "<br/>姓名：" + student.getName() + "<br/><br/>语文：" + student.getChinese() + "<br/><br/>数学：" + student.getMath() + "<br/><br/>年龄：" + student.getAge()
+
+</script>
+</body>
+</html>

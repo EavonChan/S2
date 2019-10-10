@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>统计考试科目的成绩</title>
+</head>
+<body>
+
+<input name="btn" type="button" value="统计考试科目的成绩"
+       onclick="show()">
+<script type="text/javascript">
+    function show() {
+        num = prompt('请输入考试科目数量', '');
+        var p1 = parseInt(num);
+        if (isNaN(p1)) {
+            alert("输入的不是数字！")
+        }else if(p1==0){
+            alert("考试科目不能为零！")
+        } else if(p1<0){
+            alert("考试科目不能小于零！")
+        }
+        else {
+            var sum = 0; //存储总成绩
+            for (var i = 0; i < p1 ; i++) {
+                var result = prompt("请输入第" + (i+1)+ "门科目成绩");
+                var p2=parseFloat(result);
+                if (isNaN(p2)) {
+                    alert("输入的不是数字！")
+                }
+                if (p2 < 0) {
+                    alert("成绩不能为负数")
+                }
+                sum+=p2;
+            }
+            alert(p1+"门科目的总成绩是"+sum);
+        }
+    }
+</script>
+</body>
+</html>
